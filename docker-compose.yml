@@ -1,5 +1,5 @@
 services:
-  react-app:                                  # Nom du service pour l'application React
+  nestjs-app:                                  # Nom du service pour l'application React
     image: nestjs-app-dev                     # Image Docker utilisée pour le développement
     build:
       context: ./                             # Chemin du contexte de construction (dossier contenant le code source)
@@ -7,17 +7,18 @@ services:
     ports:
       - "3000:3000"                           # Mappage des ports
       
+    # permet la mise à jour des fichier  dans le devcontainer
     develop:                                  # Configuration spécifique pour le développement
       watch:
-        - action: sync                        # Synchronisation des fichiers sans redémarrage du conteneur
-          path: nestjs-app/src                 # Surveille les modifications dans le dossier source React
+        - action: sync+restart                       # Synchronisation des fichiers sans redémarrage du conteneur
+          path: ./src                # Surveille les modifications dans le dossier source React
           target: /app/src                    # Cible à l'intérieur du conteneur (généralement le dossier de travail)
         
         - action: sync+restart                # Synchronisation avec redémarrage du conteneur si nécessaire
-          path: nestjs-app                     # Surveille tout le projet React
+          path: ./                    # Surveille tout le projet nestjs
           target: /app                        # Cible le dossier racine de l'application dans le conteneur
           ignore:                             # Liste des fichiers/dossiers à ignorer pour la surveillance
             - node_modules                    # Ignore node_modules pour éviter des re-synchronisations inutiles
         
         - action: rebuild                     # Reconstruit l'image Docker si un fichier clé change
-          path: nestjs-app/package.json        # Surveille les modifications du package.json (par ex. ajout de dépendances)
+          path: ./package.json                # Surveille les modifications du package.json (par ex. ajout de dépendances)

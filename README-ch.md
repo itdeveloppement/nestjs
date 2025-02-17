@@ -38,23 +38,24 @@ npm run build                   -> Compiler en production
 
 
 ## Structure du projet NestJS sous forme d'arborescence
-.vscode
+
 nestjs-app/
-    ├── node_modules/              # Dépendances installées
-    ├── dist/                      # Fichiers compilés en JavaScript
-    ├── src/                       # Code source de l'application
-    │   ├── app.controller.ts
-    │   ├── app.service.ts
-    │   ├── app.module.ts
-    │   └── main.ts
-    ├── test/                      # Tests unitaires
-    ├── package.json               # Dépendances et scripts NPM
-    ├── tsconfig.json              # Configuration TypeScript
-    ├── .eslintrc.js               # Configuration ESLint
-    ├── .prettierrc                # Configuration Prettier
-    ├── .gitignore                 # Fichiers à ignorer par Git
-    ├── .dockerignore              # Fichiers à ignorer par Docker (à ajouter ici)
-    ├── docker-compose.yml         # Configuration Docker Compose
+├──.vscode
+├── node_modules/              # Dépendances installées
+├── dist/                      # Fichiers compilés en JavaScript
+├── src/                       # Code source de l'application
+│   ├── app.controller.ts
+│   ├── app.service.ts
+│   ├── app.module.ts
+│   └── main.ts
+├── test/                      # Tests unitaires
+├── package.json               # Dépendances et scripts NPM
+├── tsconfig.json              # Configuration TypeScript
+├── .eslintrc.js               # Configuration ESLint
+├── .prettierrc                # Configuration Prettier
+├── .gitignore                 # Fichiers à ignorer par Git
+├── .dockerignore              # Fichiers à ignorer par Docker (à ajouter ici)
+├── docker-compose.yml         # Configuration Docker Compose
 ├── Dockerfile                 # Dockerfile
 ├── README.md                  # Documentation du projet
 
@@ -82,9 +83,12 @@ Docker compose
 
 Commandes
 
-Pour construire l'image
+Pour construire l'image dev
     docker build -t nestjs-app .                -> a executer dans le dossier ou se trouve le dockerfile
     docker build --target dev .                 -> a executer dans le dossier ou se trouve le dockerfile pour construire l image de dev
+
+Pour construire image prod
+   docker build .                               -> creation de l image de prod en effectuant le build
 
 Démarrer le container
     docker-compose up                           -> a executer au niveau du docker compose
