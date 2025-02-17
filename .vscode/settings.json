@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2f2f2f", 
+    "titleBar.activeBackground":  "#2bc695", 
+    "titleBar.inactiveBackground": "#2bc695", // Couleur pour la barre de titre quand la fenêtre est inactive
+    "sideBar.background": "#1e1e1e",
+    "activityBar.inactiveForeground": "#ffffff" // Couleur du texte ou des icônes dans la barre d'activité inactive
+  }
+}
