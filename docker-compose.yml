@@ -10,12 +10,12 @@ services:
     # permet la mise à jour des fichier  dans le devcontainer
     develop:                                  # Configuration spécifique pour le développement
       watch:
-        - action: sync+restart                       # Synchronisation des fichiers sans redémarrage du conteneur
-          path: ./src                # Surveille les modifications dans le dossier source React
+        - action: sync+restart                # Synchronisation des fichiers sans redémarrage du conteneur
+          path: ./src                         # Surveille les modifications dans le dossier source React
           target: /app/src                    # Cible à l'intérieur du conteneur (généralement le dossier de travail)
         
         - action: sync+restart                # Synchronisation avec redémarrage du conteneur si nécessaire
-          path: ./                    # Surveille tout le projet nestjs
+          path: ./                            # Surveille tout le projet nestjs
           target: /app                        # Cible le dossier racine de l'application dans le conteneur
           ignore:                             # Liste des fichiers/dossiers à ignorer pour la surveillance
             - node_modules                    # Ignore node_modules pour éviter des re-synchronisations inutiles
