@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    return 'Bienvenue sur mon application !!!!!!!!!!!';
+    return 'Bienvenue sur mon application !!!!!!!!!!';
   }
 }
